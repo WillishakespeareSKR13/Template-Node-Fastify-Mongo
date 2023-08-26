@@ -1,31 +1,31 @@
 import Controller from "../controllers";
 import { RouteOptions } from "fastify";
 
-export const GetTest: RouteOptions = {
+export const Get: RouteOptions = {
   method: "GET",
   url: "/api/template",
   handler: Controller.Template.Get,
   schema: Controller.Template.Schema.Get,
 };
-export const GetTemplateById: RouteOptions = {
+export const GetById: RouteOptions = {
   method: "GET",
   url: "/api/template/:id",
   handler: Controller.Template.GetById,
   schema: Controller.Template.Schema.GetById,
 };
-export const CreateTemplate: RouteOptions = {
+export const Create: RouteOptions = {
   method: "POST",
   url: "/api/template",
   handler: Controller.Template.Create,
   schema: Controller.Template.Schema.Create,
 };
-export const UpdateTemplate: RouteOptions = {
+export const Update: RouteOptions = {
   method: "PUT",
   url: "/api/template/:id",
   handler: Controller.Template.Update,
   schema: Controller.Template.Schema.Update,
 };
-export const DeleteTemplate: RouteOptions = {
+export const Delete: RouteOptions = {
   method: "DELETE",
   url: "/api/template/:id",
   handler: Controller.Template.Delete,

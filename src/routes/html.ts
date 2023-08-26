@@ -1,7 +1,7 @@
 import { RouteOptions } from "fastify";
 import Controller from "../controllers";
 
-export const GetHome: RouteOptions = {
+export const HTML: RouteOptions = {
   method: "GET",
   url: "/",
   handler: Controller.Html.Get,
