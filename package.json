@@ -1,0 +1,37 @@
+{
+  "name": "template-node-fastify-mongo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/WillishakespeareSKR13/Template-Node-Fastify-Mongo.git",
+  "author": "William Jesus Covarrubias Ramos <willishakespeare@live.com.mx>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "nodemon",
+    "build": "tsc"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/swagger": "^8.9.0",
+    "@fastify/swagger-ui": "^1.9.3",
+    "@hapi/boom": "^10.0.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.21.0",
+    "mongoose": "^7.4.4",
+    "zod": "^3.22.2",
+    "zod-to-json-schema": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.5.4",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
