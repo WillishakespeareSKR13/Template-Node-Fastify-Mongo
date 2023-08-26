@@ -1,5 +1,4 @@
 import bcrypt from "bcryptjs";
-import { ZodString } from "zod";
 
 export const Password = async (pass: string) =>
   await bcrypt.hash(`${pass}`, 10);
