@@ -1,19 +1,19 @@
 import { IUser } from "../../models/user";
-import { InputUser, InputUserId } from "./interfaces";
+import * as Interfaces from "./interfaces";
 
 export type InputUserById = {
-  Params: typeof InputUserId["shape"];
+  Params: typeof Interfaces.InputUserId["shape"];
 };
 
 export type InputCreateUser = {
-  Body: typeof InputUser["shape"];
+  Body: typeof Interfaces.InputUser["shape"];
 };
 
 export type InputUpdateUser = {
-  Params: typeof InputUserId["shape"];
+  Params: typeof Interfaces.InputUserId["shape"];
   Body: Partial<IUser>;
 };
 
 export type InputDeleteUser = {
-  Params: typeof InputUserId["shape"];
+  Params: typeof Interfaces.InputUserId["shape"];
 };

@@ -1,27 +1,18 @@
-import z from "zod";
-import { Template } from "./interfaces";
-
-type ITemplate = z.infer<typeof Template>;
+import * as Interfaces from "./interfaces";
 
 export type InputTemplateById = {
-  Params: {
-    id: string;
-  };
+  Params: typeof Interfaces.InputTemplateId["shape"];
 };
 
 export type InputCreateTemplate = {
-  Body: Partial<ITemplate>;
+  Body: typeof Interfaces.InputTemplate["shape"];
 };
 
 export type InputUpdateTemplate = {
-  Params: {
-    id: string;
-  };
-  Body: Partial<ITemplate>;
+  Params: typeof Interfaces.InputTemplateId["shape"];
+  Body: Partial<typeof Interfaces.InputTemplate["shape"]>;
 };
 
 export type InputDeleteTemplate = {
-  Params: {
-    id: string;
-  };
+  Params: typeof Interfaces.InputTemplateId["shape"];
 };

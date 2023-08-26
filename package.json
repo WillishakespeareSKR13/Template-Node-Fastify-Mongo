@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.3.0",
+    "@fastify/jwt": "^7.2.0",
     "@fastify/swagger": "^8.9.0",
     "@fastify/swagger-ui": "^1.9.3",
     "@hapi/boom": "^10.0.1",

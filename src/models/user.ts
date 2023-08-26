@@ -13,9 +13,10 @@ export const User = z.object({
   phone_code: z.string(),
   password: z.string(),
   role: Roles,
+  token: z.string(),
   active: z.boolean(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
 });
 
 export type IUser = z.infer<typeof User>;
@@ -27,6 +28,7 @@ const UserSchema = new Schema<IUser>(
     birthday: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true, unique: true },
+    token: { type: String, default: "" },
     phone_code: { type: String, required: true },
     password: { type: String, required: true },
     role: { type: String, default: "USER" },

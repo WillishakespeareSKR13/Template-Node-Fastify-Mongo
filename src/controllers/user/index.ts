@@ -1,4 +1,4 @@
-import User, { IUser } from "../../models/user";
+import User from "../../models/user";
 import { IController } from "../../types/controller";
 import Utils from "../../utils";
 
@@ -6,7 +6,7 @@ import * as Types from "./types";
 
 export const Get: IController = async () => {
   const users = await User.find();
-  return users as IUser[];
+  return users;
 };
 
 export const GetById: IController = async (req) => {
@@ -15,7 +15,7 @@ export const GetById: IController = async (req) => {
   const user = await User.findById(id);
   if (!user) throw new Error("User not found");
 
-  return user as IUser;
+  return user;
 };
 
 export const Create: IController = async (req) => {
@@ -28,7 +28,7 @@ export const Create: IController = async (req) => {
   };
 
   const new_user = await User.create(user);
-  return new_user as IUser;
+  return new_user;
 };
 
 export const Update: IController = async (req) => {
@@ -52,7 +52,7 @@ export const Update: IController = async (req) => {
   };
 
   const update_user = await User.findByIdAndUpdate(id, user);
-  return update_user as IUser;
+  return update_user;
 };
 
 export const Delete: IController = async (req) => {
@@ -62,7 +62,7 @@ export const Delete: IController = async (req) => {
   if (!user) throw new Error("User not found");
 
   const user_delete = await User.findByIdAndDelete(id);
-  return user_delete as IUser;
+  return user_delete;
 };
 
 export * as Types from "./types";

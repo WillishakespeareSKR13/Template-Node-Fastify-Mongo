@@ -17,4 +17,5 @@ export const InputUserId = z.object({
 
 export const OutputUser = User.omit({
   password: true,
+  token: true,
 });
