@@ -12,9 +12,10 @@ export const Get: IController = async () => {
 export const GetById: IController = async (req) => {
   const { id } = req.params as Types.InputUserById["Params"];
 
-  const user = await User.findById(id);
-  if (!user) throw new Error("User not found");
+  const get_user = await User.findById(id);
+  if (!get_user) throw new Error("User not found");
 
+  const user = get_user.toJSON();
   return user;
 };
 
@@ -22,21 +23,20 @@ export const Create: IController = async (req) => {
   const body = req.body as Types.InputCreateUser["Body"];
   const password = await Utils.Hash.Password(body.password);
 
-  const user = {
+  const payload = {
     ...body,
     password,
   };
 
-  const new_user = await User.create(user);
-  return new_user;
+  const new_user = await User.create(payload);
+
+  const user = new_user.toJSON();
+  return user;
 };
 
 export const Update: IController = async (req) => {
   const { id } = req.params as Types.InputUpdateUser["Params"];
   const body = req.body as Types.InputUpdateUser["Body"];
-
-  const find_user = await User.findById(id);
-  if (!find_user) throw new Error("User not found");
 
   const updatePassword = async () => {
     if (!body.password) return {};
@@ -46,23 +46,26 @@ export const Update: IController = async (req) => {
 
   const password = await updatePassword();
 
-  const user = {
+  const payload = {
     ...body,
     ...password,
   };
 
-  const update_user = await User.findByIdAndUpdate(id, user);
-  return update_user;
+  const update_user = await User.findByIdAndUpdate(id, payload);
+  if (!update_user) throw new Error("User not found");
+
+  const user = update_user.toJSON();
+  return user;
 };
 
 export const Delete: IController = async (req) => {
   const { id } = req.params as Types.InputDeleteUser["Params"];
 
-  const user = await User.findById(id);
-  if (!user) throw new Error("User not found");
-
   const user_delete = await User.findByIdAndDelete(id);
-  return user_delete;
+  if (!user_delete) throw new Error("User not found");
+
+  const user = user_delete.toJSON();
+  return user;
 };
 
 export * as Types from "./types";
