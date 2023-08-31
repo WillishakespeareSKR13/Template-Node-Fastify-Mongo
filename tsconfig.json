@@ -9,7 +9,18 @@
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "resolveJsonModule": false
+    "resolveJsonModule": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@adapters/*": ["src/adapters/*"],
+      "@config/*": ["src/config/*"],
+      "@services/*": ["src/services/*"],
+      "@plugins/*": ["src/plugins/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "build"]
+  "exclude": ["node_modules", "**/*.spec.ts", "build"],
+  "include": ["src/**/*.ts", "src/**/*.json", "../cli/**/*.ts"]
 }

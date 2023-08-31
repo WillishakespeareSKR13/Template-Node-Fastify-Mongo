@@ -1,6 +1,6 @@
 import { IController } from "../../types/controller";
 
-export const Get: IController = async (_, res) => {
+export const Get: IController<void> = async (_, res) => {
   const html = `
     <html>
       <head>
@@ -15,5 +15,3 @@ export const Get: IController = async (_, res) => {
   `;
   res.type("text/html").send(html);
 };
-
-export * as Schema from "./schema";

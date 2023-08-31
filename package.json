@@ -1,12 +1,12 @@
 {
   "name": "template-node-fastify-mongo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./build/index.js",
   "repository": "https://github.com/WillishakespeareSKR13/Template-Node-Fastify-Mongo.git",
   "author": "William Jesus Covarrubias Ramos <willishakespeare@live.com.mx>",
   "license": "MIT",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register build/index.js",
     "dev": "nodemon",
     "build": "tsc"
   },
@@ -33,6 +33,7 @@
     "nodemon": "^3.0.1",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   }
 }

@@ -7,7 +7,7 @@ import JWT from "@fastify/jwt";
 
 import CONFIG from "./config";
 
-import Routes from "./routes";
+import Services from "./services";
 
 import Handler from "./handler";
 import Plugins from "./plugins";
@@ -30,7 +30,7 @@ Fastify.setValidatorCompiler(Plugins.Zod.ValidatorCompiler);
 Fastify.setSerializerCompiler(Plugins.Zod.SerializerCompiler);
 
 Fastify.after(() => {
-  Routes.Register(Fastify);
+  Services.Register(Fastify);
 });
 
 const start = async () => {
