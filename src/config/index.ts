@@ -21,6 +21,7 @@ const CONFIG = {
     NAME: process.env.MONGO_NAME ?? "app-db",
   },
   GOOGLE: {
+    NAME: process.env.GOOGLE_NAME ?? "",
     JSON: process.env.GOOGLE_JSON ?? "{}",
     BUCKET: process.env.GOOGLE_BUCKET ?? "",
     CLIENT_ID: process.env.GOOGLE_CLIENT_ID ?? "",
