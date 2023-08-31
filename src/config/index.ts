@@ -6,8 +6,10 @@ dotenv.config();
 
 const CONFIG = {
   APP: {
+    NAME: process.env.APP_NAME ?? "Template Node Fastify Mongo",
     PORT: Number(process.env.PORT ?? 5000),
     HOST: process.env.HOST ?? "localhost",
+    HOST_CALLBACK: process.env.HOST_CALLBACK ?? "http://localhost:5000",
     ENV: process.env.NODE_ENV ?? "development",
     LOGGER: process.env.NODE_ENV === "development" ? true : false,
     SECRET: process.env.SECRET ?? "secret",
@@ -17,6 +19,12 @@ const CONFIG = {
     HOST: process.env.MONGO_HOST ?? "localhost",
     PORT: Number(process.env.MONGO_PORT ?? 27017),
     NAME: process.env.MONGO_NAME ?? "app-db",
+  },
+  GOOGLE: {
+    JSON: process.env.GOOGLE_JSON ?? "{}",
+    BUCKET: process.env.GOOGLE_BUCKET ?? "",
+    CLIENT_ID: process.env.GOOGLE_CLIENT_ID ?? "",
+    API_KEY: process.env.GOOGLE_API_KEY ?? "",
   },
   GET: {
     HOST_SWAGGER: () =>

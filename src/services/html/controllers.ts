@@ -1,3 +1,4 @@
+import CONFIG from "../../config";
 import { IController } from "../../types/controller";
 
 export const Get: IController<void> = async (_, res) => {
@@ -7,6 +8,7 @@ export const Get: IController<void> = async (_, res) => {
         <title>Template Node Fastify Mongo</title>
       </head>
       <body>
+        <h1>${CONFIG.APP.NAME}</h1>
         <h1>Powered by 
           <a href="http://willskr.com" target="_blank" rel="noopener noreferrer">William Jesus</a>
         </h1>
