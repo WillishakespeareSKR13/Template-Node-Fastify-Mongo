@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import * as Interfaces from "./interfaces";
-import Plugins from "@/plugins";
+import Plugins from "../../plugins";
 
 const UserSchema = new Schema<Interfaces.IUser>(
   {
@@ -11,6 +11,6 @@ const UserSchema = new Schema<Interfaces.IUser>(
   Plugins.Mongo.Normalize()
 );
 
-const UserModel = model<Interfaces.IUser>("User", UserSchema);
+const UserModel = models?.User ?? model<Interfaces.IUser>("User", UserSchema);
 
 export default UserModel;

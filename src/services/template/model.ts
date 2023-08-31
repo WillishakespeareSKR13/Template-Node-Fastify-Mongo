@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import * as Interfaces from "./interfaces";
-import Plugins from "@/plugins";
+import Plugins from "../../plugins";
 
 const TemplateSchema = new Schema<Interfaces.ITemplate>(
   {
@@ -10,6 +10,7 @@ const TemplateSchema = new Schema<Interfaces.ITemplate>(
   Plugins.Mongo.Normalize()
 );
 
-const TemplateModel = model<Interfaces.ITemplate>("Template", TemplateSchema);
+const TemplateModel =
+  models?.Template ?? model<Interfaces.ITemplate>("Template", TemplateSchema);
 
 export default TemplateModel;

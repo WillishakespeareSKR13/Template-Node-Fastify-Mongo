@@ -1,4 +1,4 @@
-import { IController } from "@/types/controller";
+import { IController } from "../../types/controller";
 import * as Interfaces from "./interfaces";
 import User from "./model";
 

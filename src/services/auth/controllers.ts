@@ -1,7 +1,7 @@
-import { IController } from "@/types/controller";
+import { IController } from "../../types/controller";
 import * as Interfaces from "./interfaces";
 import User from "../user/model";
-import Utils from "@/utils";
+import Utils from "../../utils";
 import { IUser } from "../user/interfaces";
 
 export const Login: IController<
