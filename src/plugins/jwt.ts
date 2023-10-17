@@ -1,6 +1,6 @@
-import { IController } from "../types/controller";
+import { ICtrl } from "../types/controller";
 
-export const VerifyToken: IController = async (request) => {
+export const VerifyToken: ICtrl = async (request) => {
   await request.jwtVerify();
   return {};
 };

@@ -1,8 +1,8 @@
 import { Schema, model, models } from "mongoose";
-import * as Interfaces from "./interfaces";
+import * as ITF from "./interfaces";
 import Plugins from "../../plugins";
 
-const UserSchema = new Schema<Interfaces.IUser>(
+const UserSchema = new Schema<ITF.IUser>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true, index: true },
@@ -11,6 +11,6 @@ const UserSchema = new Schema<Interfaces.IUser>(
   Plugins.Mongo.Normalize()
 );
 
-const UserModel = models?.User ?? model<Interfaces.IUser>("User", UserSchema);
+const UserModel = models?.User ?? model<ITF.IUser>("User", UserSchema);
 
 export default UserModel;

@@ -27,18 +27,18 @@ export const Post = {
   onRequest: (f) => f.jwtVerify(),
 } as RouteOptions;
 
-export const Update = {
+export const Up = {
   method: "PUT",
   url: "/api/user/:id",
   handler: Controller.Update,
-  schema: Schemas.Update,
+  schema: Schemas.Up,
   onRequest: (f) => f.jwtVerify(),
 } as RouteOptions;
 
-export const Delete = {
+export const Del = {
   method: "DELETE",
   url: "/api/user/:id",
   handler: Controller.Delete,
-  schema: Schemas.Delete,
+  schema: Schemas.Del,
   onRequest: (f) => f.jwtVerify(),
 } as RouteOptions;

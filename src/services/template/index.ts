@@ -24,16 +24,16 @@ export const Post = {
   schema: Schemas.Post,
 } as RouteOptions;
 
-export const Update = {
+export const Up = {
   method: "PUT",
   url: "/api/template/:id",
   handler: Controller.Update,
-  schema: Schemas.Update,
+  schema: Schemas.Up,
 };
 
-export const Delete = {
+export const Del = {
   method: "DELETE",
   url: "/api/template/:id",
   handler: Controller.Delete,
-  schema: Schemas.Delete,
+  schema: Schemas.Del,
 } as RouteOptions;

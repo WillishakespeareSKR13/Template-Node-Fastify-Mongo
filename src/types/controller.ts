@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 
-export type IController<O = {}, I = {}> = (
-  req: FastifyRequest & I,
+export type ICtrl<Out = {}, In = {}> = (
+  req: FastifyRequest & In,
   reply: FastifyReply
-) => Promise<O>;
+) => Promise<Out>;

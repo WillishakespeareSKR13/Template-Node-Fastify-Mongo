@@ -6,38 +6,38 @@ export const Template = z.object({
   description: z.string(),
 });
 
-export const InputTemplate = Template.omit({
+export const InTemplate = Template.omit({
   id: true,
 });
 
-export const InputTemplateId = Template.pick({
+export const InTemplateId = Template.pick({
   id: true,
 });
 
-export const OutputTemplates = Template.array();
-export const OutputTemplate = Template;
+export const OutTemplates = Template.array();
+export const OutTemplate = Template;
 
 export type ITemplate = z.infer<typeof Template>;
 
-export type InputByIdTemplate = {
-  params: z.infer<typeof InputTemplateId>;
+export type InByIdTemplate = {
+  params: z.infer<typeof InTemplateId>;
 };
 
-export type InputPostTemplate = {
-  body: z.infer<typeof InputTemplate>;
+export type InPostTemplate = {
+  body: z.infer<typeof InTemplate>;
 };
 
-export type InputUpdateTemplate = {
-  params: z.infer<typeof InputTemplateId>;
-  body: z.infer<typeof InputTemplate>;
+export type InUpTemplate = {
+  params: z.infer<typeof InTemplateId>;
+  body: z.infer<typeof InTemplate>;
 };
 
-export type InputDeleteTemplate = {
-  params: z.infer<typeof InputTemplateId>;
+export type InDelTemplate = {
+  params: z.infer<typeof InTemplateId>;
 };
 
-export type OutputTemplates = z.infer<typeof OutputTemplates>;
-export type OutputByIdTemplate = z.infer<typeof OutputTemplate>;
-export type OutputPostTemplate = z.infer<typeof OutputTemplate>;
-export type OutputUpdateTemplate = z.infer<typeof OutputTemplate>;
-export type OutputDeleteTemplate = z.infer<typeof OutputTemplate>;
+export type OutTemplates = z.infer<typeof OutTemplates>;
+export type OutByIdTemplate = z.infer<typeof OutTemplate>;
+export type OutPostTemplate = z.infer<typeof OutTemplate>;
+export type OutUpTemplate = z.infer<typeof OutTemplate>;
+export type OutDelTemplate = z.infer<typeof OutTemplate>;

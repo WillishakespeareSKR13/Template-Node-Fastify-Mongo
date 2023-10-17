@@ -1,16 +1,13 @@
-import { IController } from "../../types/controller";
-import * as Interfaces from "./interfaces";
+import { ICtrl } from "../../types/controller";
+import * as ITF from "./interfaces";
 import User from "./model";
 
-export const Get: IController<Interfaces.OutputUsers> = async () => {
+export const Get: ICtrl<ITF.OutUsers> = async () => {
   const users = await User.find();
   return users;
 };
 
-export const GetById: IController<
-  Interfaces.OutputByIdUser,
-  Interfaces.InputByIdUser
-> = async (req) => {
+export const GetById: ICtrl<ITF.OutByIdUser, ITF.InByIdUser> = async (req) => {
   const { id } = req.params;
 
   const user = await User.findById(id);
@@ -19,20 +16,14 @@ export const GetById: IController<
   return user;
 };
 
-export const Post: IController<
-  Interfaces.OutputPostUser,
-  Interfaces.InputPostUser
-> = async (req) => {
+export const Post: ICtrl<ITF.OutPostUser, ITF.InPostUser> = async (req) => {
   const payload = req.body;
 
   const user = await User.create(payload);
   return user;
 };
 
-export const Update: IController<
-  Interfaces.OutputUpdateUser,
-  Interfaces.InputUpdateUser
-> = async (req) => {
+export const Update: ICtrl<ITF.OutUpUser, ITF.InUpUser> = async (req) => {
   const { id } = req.params;
   const payload = req.body;
 
@@ -44,10 +35,7 @@ export const Update: IController<
   return user;
 };
 
-export const Delete: IController<
-  Interfaces.OutputDeleteUser,
-  Interfaces.InputDeleteUser
-> = async (req) => {
+export const Delete: ICtrl<ITF.OutDelUser, ITF.InDelUser> = async (req) => {
   const { id } = req.params;
 
   const user = await User.findByIdAndDelete(id);

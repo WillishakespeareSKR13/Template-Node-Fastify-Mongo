@@ -1,16 +1,15 @@
-import { IController } from "../../types/controller";
-import * as Interfaces from "./interfaces";
+import { ICtrl } from "../../types/controller";
+import * as ITF from "./interfaces";
 import Template from "./model";
 
-export const Get: IController<Interfaces.OutputTemplates> = async () => {
+export const Get: ICtrl<ITF.OutTemplates> = async () => {
   const templates = await Template.find();
   return templates;
 };
 
-export const GetById: IController<
-  Interfaces.OutputByIdTemplate,
-  Interfaces.InputByIdTemplate
-> = async (req) => {
+export const GetById: ICtrl<ITF.OutByIdTemplate, ITF.InByIdTemplate> = async (
+  req
+) => {
   const { id } = req.params;
 
   const template = await Template.findById(id);
@@ -19,20 +18,18 @@ export const GetById: IController<
   return template;
 };
 
-export const Post: IController<
-  Interfaces.OutputPostTemplate,
-  Interfaces.InputPostTemplate
-> = async (req) => {
+export const Post: ICtrl<ITF.OutPostTemplate, ITF.InPostTemplate> = async (
+  req
+) => {
   const payload = req.body;
 
   const template = await Template.create(payload);
   return template;
 };
 
-export const Update: IController<
-  Interfaces.OutputUpdateTemplate,
-  Interfaces.InputUpdateTemplate
-> = async (req) => {
+export const Update: ICtrl<ITF.OutUpTemplate, ITF.InUpTemplate> = async (
+  req
+) => {
   const { id } = req.params;
   const payload = req.body;
 
@@ -44,10 +41,9 @@ export const Update: IController<
   return template;
 };
 
-export const Delete: IController<
-  Interfaces.OutputDeleteTemplate,
-  Interfaces.InputDeleteTemplate
-> = async (req) => {
+export const Delete: ICtrl<ITF.OutDelTemplate, ITF.InDelTemplate> = async (
+  req
+) => {
   const { id } = req.params;
 
   const template = await Template.findByIdAndDelete(id);

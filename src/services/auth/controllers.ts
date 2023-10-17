@@ -1,13 +1,10 @@
-import { IController } from "../../types/controller";
-import * as Interfaces from "./interfaces";
+import { ICtrl } from "../../types/controller";
+import * as ITF from "./interfaces";
 import User from "../user/model";
 import Utils from "../../utils";
 import { IUser } from "../user/interfaces";
 
-export const Login: IController<
-  Interfaces.OutputLogin,
-  Interfaces.InputLogin
-> = async (req) => {
+export const Login: ICtrl<ITF.OutLogin, ITF.InLogin> = async (req) => {
   const body = req.body;
   const { email, password } = body;
 
@@ -22,10 +19,7 @@ export const Login: IController<
   return { token };
 };
 
-export const Register: IController<
-  Interfaces.OutputRegister,
-  Interfaces.InputRegister
-> = async (req) => {
+export const Register: ICtrl<ITF.OutRegister, ITF.InRegister> = async (req) => {
   const body = req.body;
   const password = await Utils.Hash.Password(body.password);
 
@@ -41,10 +35,7 @@ export const Register: IController<
   return { token };
 };
 
-export const Token: IController<
-  Interfaces.OutputToken,
-  Interfaces.InputToken
-> = async (req) => {
+export const Token: ICtrl<ITF.OutToken, ITF.InToken> = async (req) => {
   const { authorization } = req.headers;
 
   const user = Utils.JWT.Decode(authorization ?? "") as IUser;
@@ -52,9 +43,9 @@ export const Token: IController<
   return user;
 };
 
-export const RefreshToken: IController<
-  Interfaces.OutputRefreshToken,
-  Interfaces.InputRefreshToken
+export const RefreshToken: ICtrl<
+  ITF.OutRefreshToken,
+  ITF.InRefreshToken
 > = async (req) => {
   const { authorization } = req.headers;
 

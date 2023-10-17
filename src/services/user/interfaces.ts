@@ -9,38 +9,38 @@ export const User = z.object({
   updatedAt: z.string().optional(),
 });
 
-export const InputUser = User.omit({
+export const InUser = User.omit({
   id: true,
 });
 
-export const InputUserId = User.pick({
+export const InUserId = User.pick({
   id: true,
 });
 
-export const OutputUsers = User.array();
-export const OutputUser = User;
+export const OutUsers = User.array();
+export const OutUser = User;
 
 export type IUser = z.infer<typeof User>;
 
-export type InputByIdUser = {
-  params: z.infer<typeof InputUserId>;
+export type InByIdUser = {
+  params: z.infer<typeof InUserId>;
 };
 
-export type InputPostUser = {
-  body: z.infer<typeof InputUser>;
+export type InPostUser = {
+  body: z.infer<typeof InUser>;
 };
 
-export type InputUpdateUser = {
-  params: z.infer<typeof InputUserId>;
-  body: z.infer<typeof InputUser>;
+export type InUpUser = {
+  params: z.infer<typeof InUserId>;
+  body: z.infer<typeof InUser>;
 };
 
-export type InputDeleteUser = {
-  params: z.infer<typeof InputUserId>;
+export type InDelUser = {
+  params: z.infer<typeof InUserId>;
 };
 
-export type OutputUsers = z.infer<typeof OutputUsers>;
-export type OutputByIdUser = z.infer<typeof OutputUser>;
-export type OutputPostUser = z.infer<typeof OutputUser>;
-export type OutputUpdateUser = z.infer<typeof OutputUser>;
-export type OutputDeleteUser = z.infer<typeof OutputUser>;
+export type OutUsers = z.infer<typeof OutUsers>;
+export type OutByIdUser = z.infer<typeof OutUser>;
+export type OutPostUser = z.infer<typeof OutUser>;
+export type OutUpUser = z.infer<typeof OutUser>;
+export type OutDelUser = z.infer<typeof OutUser>;

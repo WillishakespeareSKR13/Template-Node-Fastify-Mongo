@@ -5,43 +5,43 @@ export const Token = z.object({
   token: z.string(),
 });
 
-export const InputHeaders = z.object({
+export const InHeaders = z.object({
   authorization: z.string().optional(),
 });
 
-export const InputLogin = User.pick({
+export const InLogin = User.pick({
   email: true,
   password: true,
 });
 
-export const InputRegister = User.omit({
+export const InRegister = User.omit({
   id: true,
 });
 
-export const OutputLogin = Token;
-export const OutputRegister = Token;
-export const OutputToken = User;
-export const OutputRefreshToken = Token;
+export const OutLogin = Token;
+export const OutRegister = Token;
+export const OutToken = User;
+export const OutRefreshToken = Token;
 
 export type IToken = z.infer<typeof Token>;
 
-export type OutputLogin = z.infer<typeof OutputLogin>;
-export type OutputRegister = z.infer<typeof OutputRegister>;
-export type OutputToken = z.infer<typeof OutputToken>;
-export type OutputRefreshToken = z.infer<typeof OutputRefreshToken>;
+export type OutLogin = z.infer<typeof OutLogin>;
+export type OutRegister = z.infer<typeof OutRegister>;
+export type OutToken = z.infer<typeof OutToken>;
+export type OutRefreshToken = z.infer<typeof OutRefreshToken>;
 
-export type InputLogin = {
-  body: z.infer<typeof InputLogin>;
+export type InLogin = {
+  body: z.infer<typeof InLogin>;
 };
 
-export type InputRegister = {
-  body: z.infer<typeof InputRegister>;
+export type InRegister = {
+  body: z.infer<typeof InRegister>;
 };
 
-export type InputToken = {
-  headers: z.infer<typeof InputHeaders>;
+export type InToken = {
+  headers: z.infer<typeof InHeaders>;
 };
 
-export type InputRefreshToken = {
-  headers: z.infer<typeof InputHeaders>;
+export type InRefreshToken = {
+  headers: z.infer<typeof InHeaders>;
 };

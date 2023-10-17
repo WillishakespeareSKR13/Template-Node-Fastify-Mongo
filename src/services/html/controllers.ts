@@ -1,7 +1,7 @@
 import CONFIG from "../../config";
-import { IController } from "../../types/controller";
+import { ICtrl } from "../../types/controller";
 
-export const Get: IController<void> = async (_, res) => {
+export const Get: ICtrl<void> = async (_, res) => {
   const html = `
     <html>
       <head>

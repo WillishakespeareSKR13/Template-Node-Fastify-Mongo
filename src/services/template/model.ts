@@ -1,8 +1,8 @@
 import { Schema, model, models } from "mongoose";
-import * as Interfaces from "./interfaces";
+import * as ITF from "./interfaces";
 import Plugins from "../../plugins";
 
-const TemplateSchema = new Schema<Interfaces.ITemplate>(
+const TemplateSchema = new Schema<ITF.ITemplate>(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -11,6 +11,6 @@ const TemplateSchema = new Schema<Interfaces.ITemplate>(
 );
 
 const TemplateModel =
-  models?.Template ?? model<Interfaces.ITemplate>("Template", TemplateSchema);
+  models?.Template ?? model<ITF.ITemplate>("Template", TemplateSchema);
 
 export default TemplateModel;
